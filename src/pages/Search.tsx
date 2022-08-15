@@ -24,8 +24,8 @@ const Search: FunctionComponent<SearchProps> = () => {
   const [currentTab, setCurrentTab] = useState("multi");
   return (
     <>
-      {!query && <Title value="Search | DUDEPLEX" />}
-      {query && <Title value={`Search: ${query} | DUDEPLEX`} />}
+      {!query && <Title value="Пошук | DUDEPLEX" />}
+      {query && <Title value={`Пошук: ${query} | DUDEPLEX`} />}
 
       <div className="flex md:hidden justify-between items-center px-5 my-5">
         <Link to="/" className="flex gap-2 items-center">
@@ -156,7 +156,7 @@ const Search: FunctionComponent<SearchProps> = () => {
               className="bg-dark-lighten rounded-md shadow-md px-4 pt-3"
             >
               <div className="flex justify-between items-center text-white pb-3">
-                <p className="text-lg ">Search Results</p>
+                <p className="text-lg ">Результати пошуку</p>
                 <button onClick={() => setOpenSearchFilter((prev) => !prev)}>
                   {openSearchFilter && <FiChevronDown size={20} />}
                   {!openSearchFilter && <FiChevronRight size={20} />}
@@ -173,7 +173,7 @@ const Search: FunctionComponent<SearchProps> = () => {
                       currentTab === "multi" && "bg-dark-lighten-2"
                     }`}
                   >
-                    <span>All</span>
+                    <span>Все</span>
                   </button>
                   <button
                     onClick={() => {
@@ -184,7 +184,7 @@ const Search: FunctionComponent<SearchProps> = () => {
                       currentTab === "movie" && "bg-dark-lighten-2"
                     }`}
                   >
-                    <span>Movie</span>
+                    <span>Фільм</span>
                   </button>
                   <button
                     onClick={() => {
@@ -195,7 +195,7 @@ const Search: FunctionComponent<SearchProps> = () => {
                       currentTab === "tv" && "bg-dark-lighten-2"
                     }`}
                   >
-                    <span>TV Show</span>
+                    <span>Серіал</span>
                   </button>
                   <button
                     onClick={() => {
@@ -206,7 +206,7 @@ const Search: FunctionComponent<SearchProps> = () => {
                       currentTab === "person" && "bg-dark-lighten-2"
                     }`}
                   >
-                    <span>People</span>
+                    <span>Люди</span>
                   </button>
                 </div>
               )}

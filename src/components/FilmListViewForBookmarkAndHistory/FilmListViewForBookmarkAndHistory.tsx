@@ -94,7 +94,7 @@ const FilmListViewForBookmarkAndHistory: FunctionComponent<
               </div>
               <p className="text-white text-xl text-center font-medium mb-4">
               Ви збираєтеся видалити
-                {selections.length === 1 ? " this film." : " these films."}
+                {selections.length === 1 ? " цей фільм." : " ці фільми."}
               </p>
               <p className="text-center mb-[2px]">
               Це видалить ваші фільми з цього {pageType} списку.

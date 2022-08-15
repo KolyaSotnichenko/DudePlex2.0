@@ -29,8 +29,8 @@ const ReadMore: FC<ReadMoreProps & HTMLProps<HTMLSpanElement>> = ({
         >
           {!isReadingMore &&
             (children as string).length > limitTextLength &&
-            "... See more"}
-          {isReadingMore && <>&nbsp; Show less</>}
+            "... Побачити більше"}
+          {isReadingMore && <>&nbsp; Показувати менше</>}
         </button>
       </span>
     </>
