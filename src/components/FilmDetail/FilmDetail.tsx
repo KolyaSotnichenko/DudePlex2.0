@@ -31,6 +31,38 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
+
+  const [copied, setCopied] = useState(false);
+
+  function copy() {
+    const el = document.createElement("input");
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    setCopied(true);
+
+    if(copied){
+      toast.success(
+        `${
+          copied && "Посилання скопійовано!"
+        }`,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      )
+    }
+
+  }
+
+
   useEffect(() => {
     if (!currentUser) {
       return;
@@ -216,7 +248,7 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
                   </button>
                   {!isMobile && (
                     <>
-                      <button className="tw-flex-center h-12 w-12 rounded-full border-[3px] border-white shadow-lg hover:border-primary transition duration-300 group">
+                      <button onClick={copy} className="tw-flex-center h-12 w-12 rounded-full border-[3px] border-white shadow-lg hover:border-primary transition duration-300 group">
                         <BsShareFill
                           size={20}
                           className="text-white group-hover:text-primary transition duration-300"
