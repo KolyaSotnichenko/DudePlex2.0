@@ -15,7 +15,7 @@ const SidebarMini: FunctionComponent = () => {
 
   const personalPageHandler = (destinationUrl: string) => {
     if (!currentUser) {
-      toast.info("You need to login to use this feature", {
+      toast.info("Вам потрібно увійти, щоб скористатися цією функцією", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
