@@ -26,7 +26,7 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         isLoadingBanner={isLoadingBanner}
       />
 
-      <GoogleAd />
+      <GoogleAd slot="989038934" classNames="page-top"/>
 
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
