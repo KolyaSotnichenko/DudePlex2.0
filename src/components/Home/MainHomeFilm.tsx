@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
+import GoogleAd from "../Ads/GoogleAds";
 import Skeleton from "../Common/Skeleton";
 import BannerSlider from "../Slider/BannerSlider";
 import SectionSlider from "../Slider/SectionSlider";
@@ -24,6 +25,8 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         dataDetail={dataDetail}
         isLoadingBanner={isLoadingBanner}
       />
+
+      <GoogleAd />
 
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
