@@ -164,7 +164,6 @@ const Home: FC = () => {
           <SearchBox />
           <RecommendGenres currentTab={currentTab} />
           <TrendingNow />
-          <GoogleAd slot="989038934" classNames="page-bottom"/>
         </div>
       </div>
 
