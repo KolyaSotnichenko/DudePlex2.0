@@ -52,18 +52,6 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if(!externalIds) return
-
-    fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
-      .then(response => {
-        if(response.ok){
-          setIsLoading(false)
-        }
-      })
-  }, [externalIds, isLoading])
-
-
-  useEffect(() => {
     if (!currentUser) return;
     if (!detail) return; // prevent this code from storing undefined value to Firestore (which cause error)
 
@@ -77,7 +65,6 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         })
         .then(data => {
           setExternalIds(data)
-          console.log(data)
         })
         .catch(err => {
           console.error(err)
@@ -123,6 +110,24 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
       }
     });
   }, [currentUser, detail, media_type, externalIds]);
+
+  useEffect(() => {
+    if(!externalIds) return
+
+    fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
+      .then(response => {
+        if(response.ok){
+          setIsLoading(false)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+    
+    return () => {}
+
+  }, [externalIds, isLoading])
 
   return (
     <>
