@@ -226,7 +226,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                   </ul>
                 )}
               </div>
-              {media_type === "tv" && currentEpisode && (
+              {/* {media_type === "tv" && currentEpisode && (
                 <div className="flex-1">
                   <h2 className="md:text-xl italic uppercase text-gray-200 mt-2 text-right">
                     {currentEpisode.name}
@@ -235,7 +235,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                     Сезон {seasonId} &#8212; Епізод {episodeId}
                   </p>
                 </div>
-              )}
+              )} */}
             </div>
             {isMobile && detail && (
               <ul className="flex gap-2 flex-wrap mt-3">
@@ -268,7 +268,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
           </div>
           <Comment media_type={media_type} id={detail?.id} />
         </div>
-        <div className="shrink-0 md:max-w-[400px] w-full relative px-6">
+        {/* <div className="shrink-0 md:max-w-[400px] w-full relative px-6">
           {!isMobile && <SearchBox />}
           {media_type === "movie" && (
             <RightbarFilms
@@ -292,7 +292,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
               />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>
