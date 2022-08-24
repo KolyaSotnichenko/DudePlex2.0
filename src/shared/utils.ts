@@ -1,4 +1,4 @@
-import { EMBED_VIDSRC, IMAGE_URL } from "./constants";
+import { EMBED_RU, EMBED_VIDSRC, IMAGE_URL } from "./constants";
 
 export const resizeImage = (
   imageUrl: string,
@@ -8,15 +8,17 @@ export const resizeImage = (
 // export const embedMovie = (id: number): string =>
 //   `${EMBED_URL}/movie?tmdb=${id}`;
 
-export const embedMovie = (id: number): string => `${EMBED_VIDSRC}/${id}`;
+// export const embedMovie = (id: number): string => `${EMBED_VIDSRC}/${id}`;
+export const embedMovie = (id: string): string => `${EMBED_RU}?imdb_id=${id}`;
 
 // export const embedMovie = (id: number): string => `${EMBED_TO}/movie?id=${id}`;
 
 // export const embedTV = (id: number, season: number, episode: number): string =>
 //   `${EMBED_URL}/series?tmdb=${id}&sea=${season}&epi=${episode}`;
 
-export const embedTV = (id: number, season: number, episode: number): string =>
-  `${EMBED_VIDSRC}/${id}/${season}-${episode}`;
+// export const embedTV = (id: number, season: number, episode: number): string =>
+//   `${EMBED_VIDSRC}/${id}/${season}-${episode}`;
+export const embedTV = (id: string): string => `${EMBED_RU}?imdb_id=${id}`
 
 // export const embedTV = (id: number, season: number, episode: number): string =>
 //   `${EMBED_TO}/tv?id=${id}&s=${season}&e=${episode}`;

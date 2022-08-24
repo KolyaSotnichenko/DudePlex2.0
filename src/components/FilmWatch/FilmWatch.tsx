@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { useCurrentViewportView } from "../../hooks/useCurrentViewportView";
+import { API_URL } from "../../shared/constants";
 import { db } from "../../shared/firebase";
 import {
   DetailMovie,
@@ -46,10 +47,28 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const currentUser = useAppSelector((state) => state.auth.user);
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
+  const [externalIds, setExternalIds] = useState();
 
   useEffect(() => {
     if (!currentUser) return;
     if (!detail) return; // prevent this code from storing undefined value to Firestore (which cause error)
+
+    if(media_type === "tv"){
+      fetch(`${API_URL}/tv/${detail.id}/external_ids?api_key=e3bb99f79b1bb8906dac2d3227927c8f`)
+        .then(response => {
+          if(response.ok){
+            return response.json()
+          }
+          throw response
+        })
+        .then(data => {
+          setExternalIds(data)
+          console.log(data)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
 
     getDoc(doc(db, "users", currentUser.uid)).then((docSnap) => {
       const isAlreadyStored = docSnap
@@ -89,7 +108,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         });
       }
     });
-  }, [currentUser, detail, media_type]);
+  }, [currentUser, detail, media_type, externalIds]);
 
   return (
     <>
@@ -136,12 +155,8 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 className="absolute w-full h-full top-0 left-0"
                 src={
                   media_type === "movie"
-                    ? embedMovie(detail.id)
-                    : embedTV(
-                        detail.id,
-                        seasonId as number,
-                        episodeId as number
-                      )
+                    ? embedMovie(detail.imdb_id)
+                    : ( externalIds && embedTV(externalIds["imdb_id"]))
                 }
                 title="Film Video Player"
                 frameBorder="0"

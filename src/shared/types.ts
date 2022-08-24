@@ -77,6 +77,7 @@ export interface DetailTV {
   genres: { id: number; name: string }[];
   homepage: string;
   id: number;
+  imdb_id: string;
   in_production: boolean;
   languages: string[];
   last_air_date: string;
