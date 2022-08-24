@@ -1,12 +1,13 @@
 import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import { FunctionComponent, useEffect, useState } from "react";
 import { AiFillStar, AiTwotoneCalendar } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
+// import { BsThreeDotsVertical } from "react-icons/bs";
+import {Hypnosis} from "react-cssfx-loading";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { useCurrentViewportView } from "../../hooks/useCurrentViewportView";
-import { API_URL } from "../../shared/constants";
+import { API_URL, EMBED_RU } from "../../shared/constants";
 import { db } from "../../shared/firebase";
 import {
   DetailMovie,
@@ -18,15 +19,15 @@ import {
 import { embedMovie, embedTV } from "../../shared/utils";
 import { useAppSelector } from "../../store/hooks";
 import ReadMore from "../Common/ReadMore";
-import RightbarFilms from "../Common/RightbarFilms";
-import SearchBox from "../Common/SearchBox";
+// import RightbarFilms from "../Common/RightbarFilms";
+// import SearchBox from "../Common/SearchBox";
 import Sidebar from "../Common/Sidebar";
 import SidebarMini from "../Common/SidebarMini";
 import Skeleton from "../Common/Skeleton";
 import Title from "../Common/Title";
 import Footer from "../Footer/Footer";
 import Comment from "./Comment/Comment";
-import SeasonSelection from "./SeasonSelection";
+// import SeasonSelection from "./SeasonSelection";
 
 interface FilmWatchProps {
   media_type: "movie" | "tv";
@@ -37,8 +38,8 @@ interface FilmWatchProps {
 
 const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   detail,
-  recommendations,
-  detailSeasons,
+  // recommendations,
+  // detailSeasons,
   media_type,
   seasonId,
   episodeId,
@@ -48,6 +49,19 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if(!externalIds) return
+
+    fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
+      .then(response => {
+        if(response.ok){
+          setIsLoading(false)
+        }
+      })
+  }, [externalIds, isLoading])
+
 
   useEffect(() => {
     if (!currentUser) return;
@@ -150,7 +164,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
             {!detail && (
               <Skeleton className="absolute top-0 left-0 w-full h-full rounded-sm" />
             )}
-            {detail && (
+            {detail && !isLoading ? (
               <iframe
                 className="absolute w-full h-full top-0 left-0"
                 src={
@@ -162,6 +176,15 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 frameBorder="0"
                 allowFullScreen
               ></iframe>
+            ): (
+              <div className="absolute grid w-full h-full content-center justify-items-center">
+                {isMobile ? (
+                  <Hypnosis color="#5179fe" width={50} height={50} />
+                ): (
+                  <Hypnosis color="#5179fe" width={100} height={100} />
+                )}
+                
+              </div>
             )}
           </div>
           <div className="mt-5 pb-8">
