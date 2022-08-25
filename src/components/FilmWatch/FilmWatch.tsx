@@ -52,8 +52,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   // const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    if (!currentUser) return;
-    if (!detail) return; // prevent this code from storing undefined value to Firestore (which cause error)
+    if (!detail) return;
 
     if(media_type === "tv"){
       fetch(`${API_URL}/tv/${detail.id}/external_ids?api_key=e3bb99f79b1bb8906dac2d3227927c8f`)
@@ -70,6 +69,11 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
           console.error(err)
         })
     }
+  }, [detail, externalIds, media_type])
+
+  useEffect(() => {
+    if (!currentUser) return;
+    if (!detail) return; // prevent this code from storing undefined value to Firestore (which cause error)
 
     getDoc(doc(db, "users", currentUser.uid)).then((docSnap) => {
       const isAlreadyStored = docSnap

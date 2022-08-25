@@ -453,7 +453,7 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
           {!isMobile && <SearchBox />}
           {/* <RecommendGenres /> */}
           <RightbarFilms
-            name="Similar"
+            name="Схожі"
             films={similar?.filter((item) => item.id !== detail?.id)}
             limitNumber={4}
             isLoading={!similar}

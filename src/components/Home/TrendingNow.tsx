@@ -15,7 +15,7 @@ const TrendingNow: FC = () => {
   return (
     <RightbarFilms
       className="mt-7"
-      name="Trending"
+      name="В тренді"
       limitNumber={2}
       films={data}
       isLoading={isLoading}
