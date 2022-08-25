@@ -2,7 +2,7 @@ import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import { FunctionComponent, useEffect, useState } from "react";
 import { AiFillStar, AiTwotoneCalendar } from "react-icons/ai";
 // import { BsThreeDotsVertical } from "react-icons/bs";
-import {Hypnosis} from "react-cssfx-loading";
+// import {Hypnosis} from "react-cssfx-loading";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
@@ -49,7 +49,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     if (!currentUser) return;
@@ -111,23 +111,20 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
     });
   }, [currentUser, detail, media_type, externalIds]);
 
-  useEffect(() => {
-    if(!externalIds) return
+  // useEffect(() => {
+  //   if(!externalIds) return
 
-    fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
-      .then(response => {
-        if(response.ok){
-          setIsLoading(false)
-        }
-      })
-      .catch(err => {
-        console.log(err)
-      })
+  //   fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
+  //     .then(response => {
+  //       if(response.status === 200){
+  //         setIsLoaded(true)
+  //       }
+  //     }).catch(err => {
+  //       console.log(err)
+  //       setIsLoaded(false)
+  //     })
 
-    
-    return () => {}
-
-  }, [externalIds, isLoading])
+  // }, [externalIds])
 
   return (
     <>
@@ -169,7 +166,20 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
             {!detail && (
               <Skeleton className="absolute top-0 left-0 w-full h-full rounded-sm" />
             )}
-            {detail && !isLoading ? (
+            {detail && (
+              <iframe
+                className="absolute w-full h-full top-0 left-0"
+                src={
+                  media_type === "movie"
+                    ? embedMovie(detail.imdb_id)
+                    : ( externalIds && embedTV(externalIds["imdb_id"]))
+                }
+                title="Film Video Player"
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            )}
+            {/* {detail && isLoaded ? (
               <iframe
                 className="absolute w-full h-full top-0 left-0"
                 src={
@@ -190,7 +200,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 )}
                 
               </div>
-            )}
+            )} */}
           </div>
           <div className="mt-5 pb-8">
             <div className="flex justify-between md:text-base text-sm">
