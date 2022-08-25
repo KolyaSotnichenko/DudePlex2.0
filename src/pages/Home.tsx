@@ -164,7 +164,6 @@ const Home: FC = () => {
           <SearchBox />
           <RecommendGenres currentTab={currentTab} />
           <TrendingNow />
-          <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
         </div>
       </div>
 
