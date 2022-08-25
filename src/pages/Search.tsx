@@ -36,6 +36,14 @@ const Search: FunctionComponent<SearchProps> = () => {
           <p className="text-xl text-white font-medium tracking-wider uppercase">
             Dude<span className="text-primary">plex</span>
           </p>
+          <a href="https://savelife.in.ua/donate/#donate-army-card-monthly">
+            <LazyLoadImage
+              alt="Logo"
+              src="/ukraine.ico"
+              effect="opacity"
+              className="w-10 h-10"
+            />
+          </a>
         </Link>
         <button onClick={() => setIsSidebarActive((prev) => !prev)}>
           <GiHamburgerMenu size={25} />

@@ -74,7 +74,7 @@ const ModalNotification: FunctionComponent<ModalNotificationProps> = ({
               : "bg-red-500 shadow-red-500 hover:bg-red-600"
           } px-4 py-2 rounded-md shadow-md text-white mt-5 absolute left-1/2 -translate-x-1/2  transition duration-300 flex gap-2 items-center`}
         >
-          <p>{type === "success" ? "CONTINUE" : "TRY AGAIN"} </p>
+          <p>{type === "success" ? "Продовжити" : "Спробувати знову"} </p>
           <p>({timeLeft})</p>
         </button>
       </div>

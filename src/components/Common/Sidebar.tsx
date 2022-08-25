@@ -83,24 +83,28 @@ const Sidebar: FC<SidebarProps> = ({ isSidebarActive, setIsSidebarActive }) => {
       }`}
       >
         {!isMobile && (
-          <Link to="/" className="flex items-center gap-3">
-            <LazyLoadImage
-              alt="Logo"
-              src="/logo.ico"
-              effect="opacity"
-              className="w-10 h-10"
-            />
-            <h1 className="text-xl text-white tracking-widest font-semibold uppercase">
-              <span>Dude</span>
-              <span className="text-primary">plex</span>
-            </h1>
-            <LazyLoadImage
-              alt="Stop War"
-              src="/ukraine.ico"
-              effect="opacity"
-              className="w-10 h-10"
-            />
-          </Link>
+          <div className="flex flex-row gap-2">
+            <Link to="/" className="flex items-center gap-3">
+              <LazyLoadImage
+                alt="Logo"
+                src="/logo.ico"
+                effect="opacity"
+                className="w-10 h-10"
+              />
+              <h1 className="text-xl text-white tracking-widest font-semibold uppercase">
+                <span>Dude</span>
+                <span className="text-primary">plex</span>
+              </h1>
+            </Link>
+            <a href="https://savelife.in.ua/donate/#donate-army-card-monthly">
+              <LazyLoadImage
+                alt="Logo"
+                src="/ukraine.ico"
+                effect="opacity"
+                className="w-10 h-10"
+              />
+            </a>
+          </div>
         )}
 
         <div

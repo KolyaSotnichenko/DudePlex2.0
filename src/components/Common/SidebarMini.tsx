@@ -36,14 +36,24 @@ const SidebarMini: FunctionComponent = () => {
       <ToastContainer />
 
       <div className="shrink-0 max-w-[80px] w-full py-8 flex flex-col items-center justify-between h-screen sticky top-0">
-        <Link to="/">
-          <LazyLoadImage
-            alt="Logo"
-            src="/logo.ico"
-            effect="opacity"
-            className="w-10 h-10"
-          />
-        </Link>
+        <div className="flex flex-col gap-4">
+          <Link to="/">
+            <LazyLoadImage
+              alt="Logo"
+              src="/logo.ico"
+              effect="opacity"
+              className="w-10 h-10"
+            />
+          </Link>
+          <a href="https://savelife.in.ua/donate/#donate-army-card-monthly">
+            <LazyLoadImage
+              alt="Logo"
+              src="/ukraine.ico"
+              effect="opacity"
+              className="w-10 h-10"
+            />
+          </a>
+        </div>
         <div className="flex flex-col gap-7">
           <Link
             to="/"
