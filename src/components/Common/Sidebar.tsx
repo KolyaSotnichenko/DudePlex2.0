@@ -94,6 +94,12 @@ const Sidebar: FC<SidebarProps> = ({ isSidebarActive, setIsSidebarActive }) => {
               <span>Dude</span>
               <span className="text-primary">plex</span>
             </h1>
+            <LazyLoadImage
+              alt="Stop War"
+              src="/ukraine.ico"
+              effect="opacity"
+              className="w-10 h-10"
+            />
           </Link>
         )}
 
