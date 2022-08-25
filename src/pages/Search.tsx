@@ -67,12 +67,13 @@ const Search: FunctionComponent<SearchProps> = () => {
 
           {!query && (
             <div className="mt-[250px] flex justify-center">
-              <LazyLoadImage
+              {/* <LazyLoadImage
                 src="/girl.png"
                 alt=""
                 effect="opacity"
                 className="max-w-[700px] w-[80vw] object-cover rounded-xl "
-              />
+              /> */}
+              <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
             </div>
           )}
           {isMobile && query && (
