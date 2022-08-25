@@ -128,7 +128,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         setIsLoaded(false)
       })
 
-  }, [externalIds])
+  }, [])
 
   return (
     <>
