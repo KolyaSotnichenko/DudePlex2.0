@@ -19,7 +19,7 @@ import {
 import { embedMovie, embedTV } from "../../shared/utils";
 import { useAppSelector } from "../../store/hooks";
 import ReadMore from "../Common/ReadMore";
-// import RightbarFilms from "../Common/RightbarFilms";
+import RightbarFilms from "../Common/RightbarFilms";
 // import SearchBox from "../Common/SearchBox";
 import Sidebar from "../Common/Sidebar";
 import SidebarMini from "../Common/SidebarMini";
@@ -38,7 +38,7 @@ interface FilmWatchProps {
 
 const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   detail,
-  // recommendations,
+  recommendations,
   // detailSeasons,
   media_type,
   seasonId,
@@ -332,6 +332,15 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
             </div>
           )}
         </div> */}
+        <div className="shrink-0 md:max-w-[400px] w-full relative px-6">
+            <RightbarFilms
+              name="Рекомендації"
+              films={recommendations?.filter((item) => item.id !== detail?.id)}
+              limitNumber={4}
+              isLoading={!recommendations}
+              className="md:mt-24 mt-0"
+            />
+        </div>
       </div>
       <Footer />
     </>
