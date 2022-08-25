@@ -49,7 +49,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
-  // const [isLoaded, setIsLoaded] = useState(false)
+  // const [isLoaded, setIsLoaded] = useState(false)\
 
   useEffect(() => {
     if (!detail) return;
@@ -293,7 +293,9 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 ))}
               </ul>
             )}
-            <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
+            {currentUser?.email !== "kolya.sotnichenko0811@gmail.com" && (
+              <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
+            )}
             <div className="md:text-xl text-lg font-medium text-white mt-5">
             Огляд:
             </div>

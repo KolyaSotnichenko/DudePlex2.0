@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
+import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
 import BannerSlider from "../Slider/BannerSlider";
 import SectionSlider from "../Slider/SectionSlider";
@@ -17,6 +18,9 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
   isLoadingBanner,
   isLoadingSection,
 }) => {
+
+  const currentUser = useAppSelector((state) => state.auth.user);
+
   return (
     <>
       <BannerSlider
@@ -25,7 +29,9 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         isLoadingBanner={isLoadingBanner}
       />
 
-      <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
+      {currentUser?.email !== "kolya.sotnichenko0811@gmail.com" && (
+        <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
+      )}
 
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
