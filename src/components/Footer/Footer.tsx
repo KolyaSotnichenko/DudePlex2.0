@@ -9,7 +9,7 @@ const Footer: FunctionComponent<FooterProps> = () => {
     <div className="bg-dark-lighten text-white flex justify-between items-center py-3 px-4 shadow-md mt-3">
       <p className="flex gap-2">
         <span>Copyright</span>
-        <span className="hidden md:block"> &copy; 19/7/2022</span>
+        <span className="hidden md:block"> &copy; 25/08/2022</span>
       </p>
       <div className="flex gap-3 items-center">
         <p className="hidden md:block">Contact me: </p>
