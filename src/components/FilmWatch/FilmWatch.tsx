@@ -289,6 +289,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 ))}
               </ul>
             )}
+            <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
             <div className="md:text-xl text-lg font-medium text-white mt-5">
             Огляд:
             </div>
@@ -306,9 +307,9 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
           </div>
           <Comment media_type={media_type} id={detail?.id} />
         </div>
-        <div className="shrink-0 md:max-w-[400px] w-full relative px-6">
-          {/* {!isMobile && <SearchBox />} */}
-          {/* {media_type === "movie" && (
+        {/* <div className="shrink-0 md:max-w-[400px] w-full relative px-6">
+          {!isMobile && <SearchBox />}
+          {media_type === "movie" && (
             <RightbarFilms
               name="Recommendations"
               films={recommendations?.filter((item) => item.id !== detail?.id)}
@@ -329,9 +330,8 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 episodeId={episodeId}
               />
             </div>
-          )} */}
-          <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
-        </div>
+          )}
+        </div> */}
       </div>
       <Footer />
     </>
