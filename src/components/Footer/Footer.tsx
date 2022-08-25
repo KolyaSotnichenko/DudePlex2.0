@@ -14,6 +14,14 @@ const Footer: FunctionComponent<FooterProps> = () => {
       <div className="flex gap-3 items-center">
         <p className="hidden md:block">Contact me: </p>
         <div className="flex gap-2">
+        <a
+            href="https://hostiq.ua/clients/aff.php?aff=6281"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-[#6e5494] transition duration-300"
+          >
+            HOSTiQ
+          </a>
           <a
             href="https://github.com/KolyaSotnichenko"
             target="_blank"
