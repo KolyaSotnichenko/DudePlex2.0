@@ -49,7 +49,10 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const { isMobile } = useCurrentViewportView();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
-  // const [isLoaded, setIsLoaded] = useState(false)\
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [data, setData] = useState()
+
+  
 
   useEffect(() => {
     if (!detail) return;
@@ -64,12 +67,28 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         })
         .then(data => {
           setExternalIds(data)
+          console.log(externalIds)
         })
         .catch(err => {
           console.error(err)
         })
     }
-  }, [detail, externalIds, media_type])
+    if(media_type === "movie"){
+      fetch(`${API_URL}/movie/${detail.id}/external_ids?api_key=e3bb99f79b1bb8906dac2d3227927c8f`)
+        .then(response => {
+          if(response.ok){
+            return response.json()
+          }
+          throw response
+        })
+        .then(data => {
+          setExternalIds(data)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
+  }, [detail, media_type])
 
   useEffect(() => {
     if (!currentUser) return;
@@ -115,29 +134,62 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
     });
   }, [currentUser, detail, media_type, externalIds]);
 
-  // useEffect(() => {
-  //   if(!externalIds) return
+  useEffect(() => {
+    compareIds()
+    
+  },[externalIds, isLoaded])
 
-  //   fetch(`${EMBED_RU}?imdb_id=${externalIds["imdb_id"]}`)
-  //     .then(response => {
-  //       if(response.status === 200){
-  //         setIsLoaded(true)
-  //       }
-  //     }).catch(err => {
-  //       console.log(err)
-  //       setIsLoaded(false)
-  //     })
+  const compareIds = async () => {
 
-  // }, [externalIds])
+    if(!externalIds) return
+
+    if(media_type === "movie"){
+      await fetch(`https://dudeplex-cors-proxy.herokuapp.com/videocdn.tv/api/movies?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
+        .then(response => {
+          if(response.ok){
+            return response.json()
+          }
+
+          throw response
+        })
+        .then(data => {
+          console.log(data)
+          if(data["data"].length !== 0){
+            setIsLoaded(true)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+
+    if(media_type === "tv"){
+      await fetch(`https://dudeplex-cors-proxy.herokuapp.com/videocdn.tv/api/tv-series?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
+        .then(response => {
+          if(response.ok){
+            return response.json()
+          }
+
+          throw response
+        })
+        .then(data => {
+          console.log(data["data"])
+          if(data["data"].length !== 0){
+            setIsLoaded(true)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
 
   return (
     <>
       {detail && (
         <Title
-          value={`Watch: ${
+          value={`Дивитись: ${
             (detail as DetailMovie).title || (detail as DetailTV).name
-          } ${
-            media_type === "tv" ? `- Season ${seasonId} - Ep ${episodeId}` : ""
           } | DUDEPLEX`}
         />
       )}
@@ -170,7 +222,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
             {!detail && (
               <Skeleton className="absolute top-0 left-0 w-full h-full rounded-sm" />
             )}
-            {detail && (
+            {/* {detail && (
               <iframe
                 className="absolute w-full h-full top-0 left-0"
                 src={
@@ -182,8 +234,8 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 frameBorder="0"
                 allowFullScreen
               ></iframe>
-            )}
-            {/* {detail && isLoaded ? (
+            )} */}
+            {detail && isLoaded ? (
               <iframe
                 className="absolute w-full h-full top-0 left-0"
                 src={
@@ -197,14 +249,9 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
               ></iframe>
             ): (
               <div className="absolute grid w-full h-full content-center justify-items-center">
-                {isMobile ? (
-                  <Hypnosis color="#5179fe" width={50} height={50} />
-                ): (
-                  <Hypnosis color="#5179fe" width={100} height={100} />
-                )}
-                
+                <p>Тимчасово недоступно</p>
               </div>
-            )} */}
+            )}
           </div>
           <div className="mt-5 pb-8">
             <div className="flex justify-between md:text-base text-sm">
