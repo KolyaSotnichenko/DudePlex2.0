@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { AiOutlineHistory, AiOutlineHome } from "react-icons/ai";
 import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { BsBookmarkHeart } from "react-icons/bs";
@@ -7,11 +7,37 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useAppSelector } from "../../store/hooks";
+import { auth } from "../../shared/firebase";
+import { signOut } from "firebase/auth";
+import { HiOutlineLogin, HiOutlineLogout } from "react-icons/hi";
 
 const SidebarMini: FunctionComponent = () => {
   const location = useLocation();
   const currentUser = useAppSelector((state) => state.auth.user);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const signOutHandler = () => {
+    setIsLoading(true);
+    signOut(auth)
+      .then(() => {
+        toast.success("Вихід успішний", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      })
+      .catch((error) => alert(error.message))
+      .finally(() => setIsLoading(false));
+  };
 
   const personalPageHandler = (destinationUrl: string) => {
     if (!currentUser) {
@@ -104,7 +130,7 @@ const SidebarMini: FunctionComponent = () => {
             <BiUserCircle size={25} />
           </button>
         </div>
-        <button onClick={() => personalPageHandler("/profile")}>
+        {/* <button onClick={() => personalPageHandler("/profile")}>
           <LazyLoadImage
             src={
               currentUser
@@ -115,7 +141,24 @@ const SidebarMini: FunctionComponent = () => {
             effect="opacity"
             className="w-10 h-10 rounded-full"
           />
-        </button>
+        </button> */}
+        {!currentUser && (
+            <Link
+              to={`/auth?redirect=${encodeURIComponent(location.pathname)}`}
+              className="flex gap-5 items-center"
+            >
+              <HiOutlineLogin size={30} />
+            </Link>
+          )}
+
+          {currentUser && (
+            <button
+              onClick={signOutHandler}
+              className="flex gap-5 items-center"
+            >
+              <HiOutlineLogout size={30} />
+            </button>
+          )}
       </div>
     </>
   );
