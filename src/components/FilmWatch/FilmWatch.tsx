@@ -2,7 +2,7 @@ import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import { FunctionComponent, useEffect, useState } from "react";
 import { AiFillStar, AiTwotoneCalendar } from "react-icons/ai";
 // import { BsThreeDotsVertical } from "react-icons/bs";
-// import {Hypnosis} from "react-cssfx-loading";
+import {Hypnosis} from "react-cssfx-loading";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
@@ -249,7 +249,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
               ></iframe>
             ): (
               <div className="absolute grid w-full h-full content-center justify-items-center">
-                <p>Тимчасово недоступно</p>
+                <Hypnosis width={50} height={50} />
               </div>
             )}
           </div>
