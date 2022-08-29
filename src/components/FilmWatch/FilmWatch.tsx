@@ -343,7 +343,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
             {currentUser?.email !== "kolya.sotnichenko0811@gmail.com" && (
               <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
             )}
-            <div className="md:text-xl text-lg font-medium text-white mt-5">
+            {/* <div className="md:text-xl text-lg font-medium text-white mt-5">
             Огляд:
             </div>
             {!detail && <Skeleton className="h-[84px] mt-2" />}
@@ -356,7 +356,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                   ? detail.overview
                   : currentEpisode?.overview}
               </ReadMore>
-            )}
+            )} */}
           </div>
           <Comment media_type={media_type} id={detail?.id} />
         </div>
