@@ -73,7 +73,7 @@ export const getHomeTVs = async (): Promise<HomeFilms> => {
     Popular: "/tv/popular",
     "Top Rated": "/tv/top_rated",
     Hot: "/trending/tv/day?page=2",
-    "On the air": "/tv/on_the_air",
+    "On The Air": "/tv/on_the_air",
   };
 
   const responses = await Promise.all(
