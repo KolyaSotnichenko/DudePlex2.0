@@ -11,6 +11,7 @@ export const getExploreMovie: (
       params: {
         ...config,
         page,
+        language: "uk-UA"
       },
     })
   ).data;
@@ -37,6 +38,7 @@ export const getExploreTV: (
       params: {
         ...config,
         page,
+        language: "uk-UA"
       },
     })
   ).data;

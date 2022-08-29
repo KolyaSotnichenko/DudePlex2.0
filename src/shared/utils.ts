@@ -46,15 +46,15 @@ export const calculateTimePassed = (time: number): string => {
 
 export const convertErrorCodeToMessage = (errorCode: string) => {
   if (errorCode === "auth/email-already-in-use")
-    return "Your email is already in use.";
+    return "Ваша електронна адреса вже використовується.";
   else if (errorCode === "auth/user-not-found")
-    return "Your email may be incorrect.";
+    return "Ваша електронна адреса може бути неправильною.";
   else if (errorCode === "auth/wrong-password")
-    return "Your password is incorrect.";
-  else if (errorCode === "auth/invalid-email") return "Your email is invalid";
+    return "Ваш пароль неправильний.";
+  else if (errorCode === "auth/invalid-email") return "Ваша електронна адреса недійсна";
   else if (errorCode === "auth/too-many-requests")
-    return "You request too many times!";
-  else return "Something weird happened.";
+    return "Ви запитуєте занадто багато разів!";
+  else return "Сталося щось дивне.";
 };
 
 export const getRandomAvatar = (): string => {

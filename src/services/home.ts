@@ -130,5 +130,5 @@ export const getTVBannerInfo = async (tvs: Item[]): Promise<any> => {
 // GENERAL
 ///////////////////////////////////////////////////////////////
 export const getTrendingNow = async (): Promise<Item[]> => {
-  return (await axios.get("/trending/all/day?page=2")).data.results;
+  return (await axios.get("/trending/all/day?page=2", {params: {language: "uk-UA"}})).data.results;
 };

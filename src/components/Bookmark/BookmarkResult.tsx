@@ -34,8 +34,8 @@ const BookmarkResult: FunctionComponent<BookmarkResultProps> = ({
           </div>
           <p className="mt-5">
             {pageType === "bookmark"
-              ? "Your bookmark list for this type is empty. Let's bookmark some!"
-              : "Your recently watched films for this type is empty. Let's watch some! "}
+              ? "Ваш список закладок для цього типу порожній."
+              : "Ваші нещодавно переглянуті фільми для цього типу порожні. Давайте подивимося щось!"}
           </p>
         </div>
       )}
