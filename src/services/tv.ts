@@ -11,9 +11,9 @@ import {
 export const getTVFullDetail = async (id: number): Promise<FilmInfo> => {
   const response = await Promise.all([
     axios.get(`/tv/${id}`, { params: {language: "uk-UA"}}),
-    axios.get(`/tv/${id}/credits`),
+    axios.get(`/tv/${id}/credits`, { params: {language: "uk-UA"}}),
     axios.get(`/tv/${id}/reviews`),
-    axios.get(`/tv/${id}/similar`),
+    axios.get(`/tv/${id}/similar`, { params: {language: "uk-UA"}}),
     axios.get(`/tv/${id}/videos`),
   ]);
 
@@ -59,7 +59,7 @@ export const getTVFullDetail = async (id: number): Promise<FilmInfo> => {
 export const getWatchTV = async (id: number): Promise<getWatchReturnedType> => {
   const res = await Promise.all([
     axios.get(`/tv/${id}`, {params: {language: 'uk-UA'}}),
-    axios.get(`/tv/${id}/recommendations`),
+    axios.get(`/tv/${id}/recommendations`, { params: {language: "uk-UA"}}),
   ]);
 
   const data = {
