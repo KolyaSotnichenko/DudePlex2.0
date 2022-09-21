@@ -74,11 +74,6 @@ const Home: FC = () => {
   return (
     <>
       <Title value="DUDEPLEX | Watching Website" />
-      <Helmet>
-        {currentUser?.email !== "kolya.sotnichenko0811@gmail.com" && (
-          <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
-        )}
-      </Helmet>
 
       <div className="flex md:hidden justify-between items-center px-5 my-5">
         <Link to="/" className="flex gap-2 items-center">
