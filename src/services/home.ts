@@ -7,10 +7,12 @@ import { HomeFilms } from "../shared/types";
 export const getHomeMovies = async (): Promise<HomeFilms> => {
   const endpoints: { [key: string]: string } = {
     Trending: "/trending/movie/day",
-    Popular: "/movie/popular",
-    "Top Rated": "/movie/top_rated",
-    Hot: "/trending/movie/day?page=2",
-    Upcoming: "/movie/upcoming",
+    "В тренді": "/trending/movie/day",
+    // Popular: "/movie/popular",
+    "Популярні": "/movie/popular",
+    "Топ": "/movie/top_rated",
+    "Гаряче": "/trending/movie/day?page=2",
+    // "Майбутні": "/movie/upcoming",
   };
 
   const responses = await Promise.all(

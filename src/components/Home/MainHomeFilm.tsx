@@ -29,10 +29,6 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         isLoadingBanner={isLoadingBanner}
       />
 
-      {currentUser?.email !== "kolya.sotnichenko0811@gmail.com" && (
-        <div id="container-80f5fa6e0fb7dda9e9f501c7a9829701"></div>
-      )}
-
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
           <>

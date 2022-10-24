@@ -249,7 +249,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
               ></iframe>
             ): (
               <div className="absolute grid w-full h-full content-center justify-items-center">
-                <Hypnosis width={50} height={50} />
+                <Hypnosis color="#a3e635" width={50} height={50} />
               </div>
             )}
           </div>

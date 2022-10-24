@@ -67,14 +67,14 @@ const BannerSlider: FC<BannerSliderProps> = ({
                     {film.title || film.name}
                   </h2>
                   <div className="">
-                    <p className="text-white font-semibold md:text-2xl text-base mt-6">
+                    {/* <p className="text-white font-semibold md:text-2xl text-base mt-6">
                       {dataDetail[index].translation[0] ||
                         dataDetail[index].translation[1] ||
                         dataDetail[index].translation[2] ||
                         dataDetail[index].translation[3] ||
                         dataDetail[index].translation[4] ||
                         dataDetail[index].translation[5]}
-                    </p>
+                    </p> */}
                     <p className="mt-1">
                       {film.release_date &&
                         `Дата випуску: ${film.release_date}`}
