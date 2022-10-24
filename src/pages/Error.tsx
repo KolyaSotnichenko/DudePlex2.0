@@ -29,14 +29,13 @@ const Error: FunctionComponent<ErrorProps> = () => {
             404
           </p>
           <p className="mt-6 text-white text-2xl text-center">
-            There is nothing here
-          </p>
+          Тут нічого немає          </p>
           <div className="flex justify-center">
             <Link
               to="/"
               className="px-8 py-2 bg-primary rounded-md text-white text-xl mt-8 inline-block hover:bg-blue-600 transition duration-300"
             >
-              Go to Homepage
+              Перейти на домашню сторінку
             </Link>
           </div>
         </div>
