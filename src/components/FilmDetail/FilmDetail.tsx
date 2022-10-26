@@ -307,8 +307,8 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
                     <>
                       <p className="text-white font-medium text-lg">
                         {detail.media_type === "movie"
-                          ? "RUNTIME"
-                          : "EP LENGTH"}
+                          ? "ЧАС"
+                          : "ЧАС ЕПІЗОДУ"}
                       </p>
                       <div className="flex gap-2 items-center">
                         {detail.media_type === "movie" && (
@@ -321,13 +321,13 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
                             {(detail as DetailTV).episode_run_time[0]}
                           </p>
                         )}
-                        <span>min</span>
+                        <span>хв</span>
                       </div>
                     </>
                   )}
                   {!detail && (
                     <>
-                      <p className="text-white font-medium text-lg">RUNTIME</p>
+                      <p className="text-white font-medium text-lg">Тривалість</p>
                       <Skeleton className="w-14 h-6" />
                     </>
                   )}
@@ -341,7 +341,7 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
             </div>
 
             <div className="shrink-0 md:max-w-[300px] w-full px-6 pt-6">
-              <p className="text-white font-medium text-lg mb-5">MEDIA</p>
+              <p className="text-white font-medium text-lg mb-5">Трейлери</p>
               <ul className="flex flex-col md:gap-[30px] gap-6">
                 {videos &&
                   videos.slice(0, 2).map((video) => (
@@ -363,9 +363,9 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
                           className="absolute top-0 left-0 !w-full !h-full"
                         ></iframe>
                       </div>
-                      <p className="mt-3 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
+                      {/* <p className="mt-3 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
                         {video.name}
-                      </p>
+                      </p> */}
                     </li>
                   ))}
                 {!videos &&
