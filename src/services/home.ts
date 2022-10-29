@@ -72,10 +72,14 @@ export const getMovieBannerInfo = async (movies: Item[]): Promise<any> => {
 export const getHomeTVs = async (): Promise<HomeFilms> => {
   const endpoints: { [key: string]: string } = {
     Trending: "/trending/tv/day",
-    Popular: "/tv/popular",
-    "Top Rated": "/tv/top_rated",
-    Hot: "/trending/tv/day?page=2",
-    "On The Air": "/tv/on_the_air",
+    "В тренді": "/trending/tv/day",
+    // Popular: "/tv/popular",
+    "Популярні": "/tv/popular",
+    // "Top Rated": "/tv/top_rated",
+    "Топ": "/tv/top_rated",
+    // Hot: "/trending/tv/day?page=2",
+    "Гаряче": "/trending/tv/day?page=2",
+    // "On The Air": "/tv/on_the_air",
   };
 
   const responses = await Promise.all(
