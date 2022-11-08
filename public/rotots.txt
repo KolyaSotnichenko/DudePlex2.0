@@ -1,0 +1,3 @@
+User-agent: Googlebot
+Disallow: /not-for-google
+Sitemap: https://www.dudeplex.space/sitemap.xml
