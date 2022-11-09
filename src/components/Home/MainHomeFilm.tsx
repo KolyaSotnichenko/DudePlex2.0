@@ -19,7 +19,7 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
   isLoadingSection,
 }) => {
 
-  const currentUser = useAppSelector((state) => state.auth.user);
+  // const currentUser = useAppSelector((state) => state.auth.user);
 
   return (
     <>
