@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { useCurrentViewportView } from "../../hooks/useCurrentViewportView";
-import { API_URL, EMBED_RU } from "../../shared/constants";
+import { API_URL } from "../../shared/constants";
 import { db } from "../../shared/firebase";
 import {
   DetailMovie,
@@ -18,7 +18,7 @@ import {
 } from "../../shared/types";
 import { embedMovie, embedTV } from "../../shared/utils";
 import { useAppSelector } from "../../store/hooks";
-import ReadMore from "../Common/ReadMore";
+// import ReadMore from "../Common/ReadMore";
 import RightbarFilms from "../Common/RightbarFilms";
 // import SearchBox from "../Common/SearchBox";
 import Sidebar from "../Common/Sidebar";
@@ -41,8 +41,6 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   recommendations,
   // detailSeasons,
   media_type,
-  seasonId,
-  episodeId,
   currentEpisode,
 }) => {
   const currentUser = useAppSelector((state) => state.auth.user);
@@ -50,7 +48,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
   const [isLoaded, setIsLoaded] = useState(false)
-  const [data, setData] = useState()
+  // const [data, setData] = useState()
 
   
 
@@ -144,7 +142,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
     if(!externalIds) return
 
     if(media_type === "movie"){
-      await fetch(`https://dudeplex-cors-proxy.herokuapp.com/videocdn.tv/api/movies?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
+      await fetch(`https://dudeplex-cors-proxy.vercel.app/videocdn.tv/api/movies?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
         .then(response => {
           if(response.ok){
             return response.json()
@@ -164,7 +162,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
     }
 
     if(media_type === "tv"){
-      await fetch(`https://dudeplex-cors-proxy.herokuapp.com/videocdn.tv/api/tv-series?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
+      await fetch(`https://dudeplex-cors-proxy.vercel.app/videocdn.tv/api/tv-series?api_token=IISbfTsMm42mRk7dtPxB5zmhEfK3YKau&imdb_id=${externalIds["imdb_id"]}`, {headers: {'Access-Control-Allow-Origin': '*' }})
         .then(response => {
           if(response.ok){
             return response.json()
