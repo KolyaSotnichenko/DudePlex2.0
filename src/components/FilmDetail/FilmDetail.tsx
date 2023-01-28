@@ -340,45 +340,48 @@ const FilmDetail: FC<FilmInfo> = ({ similar, videos, detail, ...others }) => {
               <FilmTabInfo detail={detail} {...others} />
             </div>
 
-            <div className="shrink-0 md:max-w-[300px] w-full px-6 pt-6">
-              <p className="text-white font-medium text-lg mb-5">Трейлери</p>
-              <ul className="flex flex-col md:gap-[30px] gap-6">
-                {videos &&
-                  videos.slice(0, 2).map((video) => (
-                    <li key={video.id}>
-                      <div className="relative h-0 pb-[56.25%]">
-                        {/* <YouTube
-                          videoId={video.key}
-                          opts={{ height: "100%", width: "100%" }}
-                        /> */}
-                        <iframe
-                          frameBorder="0"
-                          allowFullScreen
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          title="Video trailer"
-                          width="100%"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${video.key}?enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A3000&amp;widgetid=1`}
-                          id="widget2"
-                          className="absolute top-0 left-0 !w-full !h-full"
-                        ></iframe>
-                      </div>
-                      {/* <p className="mt-3 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
-                        {video.name}
-                      </p> */}
-                    </li>
-                  ))}
-                {!videos &&
-                  [...new Array(2)].map((_, index) => (
-                    <li key={index}>
-                      <div className="w-full h-0 pb-[56.25%] relative">
-                        <Skeleton className="absolute w-full h-full" />
-                      </div>
-                      <Skeleton className="h-6 w-[70%] mt-3" />
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            {videos && (
+              <div className="shrink-0 md:max-w-[300px] w-full px-6 pt-6">
+                <p className="text-white font-medium text-lg mb-5">Трейлери</p>
+                <ul className="flex flex-col md:gap-[30px] gap-6">
+                  {videos &&
+                    videos.slice(0, 2).map((video) => (
+                      <li key={video.id}>
+                        <div className="relative h-0 pb-[56.25%]">
+                          {/* <YouTube
+                            videoId={video.key}
+                            opts={{ height: "100%", width: "100%" }}
+                          /> */}
+                          <iframe
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            title="Video trailer"
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${video.key}?enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A3000&amp;widgetid=1`}
+                            id="widget2"
+                            className="absolute top-0 left-0 !w-full !h-full"
+                          ></iframe>
+                        </div>
+                        {/* <p className="mt-3 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
+                          {video.name}
+                        </p> */}
+                      </li>
+                    ))}
+                  {!videos &&
+                    [...new Array(2)].map((_, index) => (
+                      <li key={index}>
+                        <div className="w-full h-0 pb-[56.25%] relative">
+                          <Skeleton className="absolute w-full h-full" />
+                        </div>
+                        <Skeleton className="h-6 w-[70%] mt-3" />
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
+            
 
             {isMobile && (
               <div className="shrink-0 md:max-w-[150px] w-full flex items-center md:flex-col justify-center flex-row gap-20  md:border-r border-dark-lighten md:pt-16 pt-0 md:mt-20 mt-8">

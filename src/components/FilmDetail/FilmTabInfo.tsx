@@ -65,7 +65,7 @@ const FilmTabInfo: FC<FilmTabInfoProps> = ({ detail, credits, reviews }) => {
               </p>
             )}
             {!detail && <Skeleton className="h-6 w-[350px] mx-auto mb-8" />}
-            <p className="text-white font-medium  mb-3">ІСТОРІЯ</p>
+            { detail?.overview && <p className="text-white font-medium  mb-3">ІСТОРІЯ</p>}
             {detail && (
               <ReadMore limitTextLength={250}>{detail.overview}</ReadMore>
             )}
