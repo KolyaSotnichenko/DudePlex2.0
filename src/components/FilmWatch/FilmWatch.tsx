@@ -48,9 +48,8 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [externalIds, setExternalIds] = useState();
   const [isLoaded, setIsLoaded] = useState(false)
+  const [ukrIframe, setUkrIframe] = useState()
   // const [data, setData] = useState()
-
-  
 
   useEffect(() => {
     if (!detail) return;
@@ -87,6 +86,25 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         })
     }
   }, [detail, media_type])
+
+  useEffect(() => {
+    if(!detail?.imdb_id || !externalIds) return
+    fetch(`https://dudeplex-cors-proxy.vercel.app/base.ashdi.vip/api/product/read_one.php?imdb=${detail.imdb_id || externalIds["imdb_id"]}&api_key=737406-699fe6-1ed65f-f92e4a-4274f8`)
+      .then(response => {
+        if(response.ok){
+          return response.json()
+        }
+        throw response
+      })
+      .then(data => {
+        setUkrIframe(data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }, [detail, externalIds])
+
+  console.log('Ukraine', ukrIframe)
 
   useEffect(() => {
     if (!currentUser) return;
@@ -130,7 +148,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
         });
       }
     });
-  }, [currentUser, detail, media_type, externalIds]);
+  }, [ detail, media_type]);
 
   useEffect(() => {
     compareIds()
@@ -233,7 +251,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                 allowFullScreen
               ></iframe>
             )} */}
-            {detail && isLoaded ? (
+            {(detail && isLoaded && ukrIframe === undefined) ? (
               <iframe
                 className="absolute w-full h-full top-0 left-0"
                 src={
@@ -249,6 +267,15 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
               <div className="absolute grid w-full h-full content-center justify-items-center">
                 <Hypnosis color="#a3e635" width={50} height={50} />
               </div>
+            )}
+            {(detail && isLoaded && ukrIframe !== undefined) && (
+              <iframe
+                className="absolute w-full h-full top-0 left-0"
+                src={ukrIframe["url"]}
+                title="Film Video Player"
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
             )}
           </div>
           <div className="mt-5 pb-8">
@@ -295,6 +322,7 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                           ).getFullYear()}
                       </p>
                     </div>
+                    {ukrIframe && (<p>🇺🇦</p>)}
                   </div>
                 )}
                 {!detail && <Skeleton className="w-[100px] h-[23px] mt-2" />}
