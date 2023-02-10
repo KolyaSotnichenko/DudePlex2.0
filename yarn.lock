@@ -7,11 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@alan-ai/alan-sdk-web@^1.8.40":
-  version "1.8.42"
-  resolved "https://registry.yarnpkg.com/@alan-ai/alan-sdk-web/-/alan-sdk-web-1.8.42.tgz#46d100cc8c30a14408d1f15176a47207c5b9e748"
-  integrity sha512-HcZ0FGgIJ7I62m4V5t/vMy1ENivpTG7625YJAPSfvykU43f81iDPVi97/6Ni0mYs2htUXq0JVP5FMrQ6JEnVcg==
-
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"

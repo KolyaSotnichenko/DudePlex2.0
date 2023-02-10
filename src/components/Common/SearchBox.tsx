@@ -2,7 +2,6 @@ import { FC, FormEvent, useEffect, useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { getSearchKeyword } from "../../services/search";
-import alanBtn from '@alan-ai/alan-sdk-web';
 
 interface SearchBoxProps {
   autoFocus?: boolean;
@@ -19,17 +18,6 @@ const SearchBox: FC<SearchBoxProps> = ({ autoFocus = false }) => {
   const timeoutRef = useRef<any>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const navigate = useNavigate();
-
-  const alanKey = '822f93ecc8ca62690f9e94501676da7d2e956eca572e1d8b807a3e2338fdd0dc/stage'
-
-  useEffect(() => {
-    alanBtn({
-        key: alanKey,
-        onCommand: (commandData:any) => {
-          navigate(`/search?query=${encodeURIComponent(commandData.data.trim())}}`);
-        }
-    });
-  }, []);
 
   useEffect(() => {
     if (timeoutRef.current) {

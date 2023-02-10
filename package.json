@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@alan-ai/alan-sdk-web": "^1.8.40",
     "@formkit/auto-animate": "^1.0.0-beta.1",
     "@reduxjs/toolkit": "^1.8.3",
     "@tanstack/react-query": "^4.0.10",
