@@ -51,6 +51,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
                   src={resizeImage(film.backdrop_path, "w1280")}
                   alt="Backdrop image"
                   effect="blur"
+                  className="w-full h-full"
                 />
 
                 <div className="absolute top-0 left-0 w-full h-full rounded-lg pointer-events-none tw-black-backdrop group-hover:bg-[#00000026] transition duration-7000"></div>
