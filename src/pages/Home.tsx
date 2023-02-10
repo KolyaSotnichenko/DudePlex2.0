@@ -1,10 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { FC, useState } from "react";
-// import { Helmet } from "react-helmet";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-// import GoogleAd from "../components/Ads/GoogleAds";
 import SearchBox from "../components/Common/SearchBox";
 import Sidebar from "../components/Common/Sidebar";
 import Title from "../components/Common/Title";

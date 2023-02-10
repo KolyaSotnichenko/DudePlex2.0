@@ -4,11 +4,12 @@ import { Navigation, Autoplay } from "swiper";
 import { Item } from "../../shared/types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { resizeImage } from "../../shared/utils";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillMinusSquare, AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { BsFillPlayFill } from "react-icons/bs";
 import Skeleton from "../Common/Skeleton";
 import { useCurrentViewportView } from "../../hooks/useCurrentViewportView";
+import { Helmet } from "react-helmet";
 interface BannerSliderProps {
   films: Item[] | undefined;
   dataDetail: {
@@ -26,6 +27,12 @@ const BannerSlider: FC<BannerSliderProps> = ({
   const { isMobile } = useCurrentViewportView();
 
   return (
+    <>
+    <Helmet>
+      {(films as Item[]).map(film => (
+        <link rel="preload" as="image" href={resizeImage(film.backdrop_path)}/>
+      ))}
+    </Helmet>
     <div className="mt-6 relative h-0 md:pb-[45%] pb-[55%]  tw-banner-slider">
       {isLoadingBanner ? (
         <Skeleton className="absolute top-0 left-0 w-full h-full rounded-lg" />
@@ -109,6 +116,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
         </Swiper>
       )}
     </div>
+    </>
   );
 };
 
