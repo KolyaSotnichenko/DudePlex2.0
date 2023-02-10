@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
-import { useAppSelector } from "../../store/hooks";
+// import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
 import BannerSlider from "../Slider/BannerSlider";
 import SectionSlider from "../Slider/SectionSlider";

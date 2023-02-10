@@ -28,7 +28,8 @@ const FilmItem: FunctionComponent<FilmItemProps> = ({ item }) => {
               ? resizeImage(item.profile_path || "", "w342")
               : resizeImage(item.poster_path, "w342")
           }
-          className="object-cover"
+          // className="object-cover"
+          className="w-full h-full"
           effect="blur"
         />
         <p className="whitespace-nowrap overflow-hidden text-ellipsis text-base text-gray-300 mt-1 text-center px-2 group-hover:text-white transition duration-300">
