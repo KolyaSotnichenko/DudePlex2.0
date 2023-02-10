@@ -29,7 +29,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
   return (
     <>
     <Helmet>
-      {(films as Item[]).map(film => (
+      {!isLoadingBanner && (films as Item[]).map(film => (
         <link rel="preload" as="image" href={resizeImage(film.backdrop_path)}/>
       ))}
     </Helmet>
