@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { Helmet } from "react-helmet";
 import { AiFillStar } from "react-icons/ai";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
@@ -12,10 +11,6 @@ interface FilmItemProps {
 
 const FilmItem: FunctionComponent<FilmItemProps> = ({ item }) => {
   return (
-    <>
-    <Helmet>
-      <link rel="preload" as="image" href={resizeImage((item.profile_path || "") || item.poster_path, "w342")}/>
-    </Helmet>
     <Link
       to={
         item.media_type === "movie"
@@ -46,7 +41,6 @@ const FilmItem: FunctionComponent<FilmItemProps> = ({ item }) => {
         </div>
       </div>
     </Link>
-    </>
   );
 };
 
