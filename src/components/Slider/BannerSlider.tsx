@@ -4,7 +4,7 @@ import { Navigation, Autoplay } from "swiper";
 import { Item } from "../../shared/types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { resizeImage } from "../../shared/utils";
-import { AiFillMinusSquare, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { BsFillPlayFill } from "react-icons/bs";
 import Skeleton from "../Common/Skeleton";
