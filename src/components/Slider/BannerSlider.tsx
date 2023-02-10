@@ -31,7 +31,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
     <>
     <Helmet>
       {!isLoadingBanner && (films as Item[]).map(film => (
-        <link rel="preload" as="image" href={resizeImage(film.backdrop_path, "w780")}/>
+        <link rel="preload" as="image" href={resizeImage(film.backdrop_path, "w1280")}/>
       ))}
     </Helmet>
     <div className="mt-6 relative h-0 md:pb-[45%] pb-[55%]  tw-banner-slider">
@@ -56,7 +56,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
                 className="group"
               >
                 <LazyLoadImage
-                  src={resizeImage(film.backdrop_path, "w780")}
+                  src={resizeImage(film.backdrop_path, "w1280")}
                   alt="Backdrop image"
                   effect="blur"
                   width='100%'

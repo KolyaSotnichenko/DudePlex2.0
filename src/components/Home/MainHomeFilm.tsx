@@ -1,4 +1,4 @@
-import { FC, lazy } from "react";
+import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
 // import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
