@@ -2,12 +2,8 @@ import { FC, lazy } from "react";
 import { HomeFilms } from "../../shared/types";
 // import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
-// import BannerSlider from "../Slider/BannerSlider";
-// import SectionSlider from "../Slider/SectionSlider";
-
-
-const BannerSlider = lazy(() => import("../Slider/BannerSlider"))
-const SectionSlider = lazy(() => import("../Slider/SectionSlider"))
+import BannerSlider from "../Slider/BannerSlider";
+import SectionSlider from "../Slider/SectionSlider";
 
 interface MainHomeFilmsProps {
   data: HomeFilms | undefined;
