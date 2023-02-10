@@ -14,7 +14,7 @@ const FilmItem: FunctionComponent<FilmItemProps> = ({ item }) => {
   return (
     <>
     <Helmet>
-      <link rel="preload" as="image" href={resizeImage(item.profile_path || item.poster_path, "w342")}/>
+      <link rel="preload" as="image" href={resizeImage((item.profile_path || "") || item.poster_path, "w342")}/>
     </Helmet>
     <Link
       to={
