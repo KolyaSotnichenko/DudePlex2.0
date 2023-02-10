@@ -10,6 +10,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 import Skeleton from "../Common/Skeleton";
 import { useCurrentViewportView } from "../../hooks/useCurrentViewportView";
 import { Helmet } from "react-helmet";
+
 interface BannerSliderProps {
   films: Item[] | undefined;
   dataDetail: {
@@ -55,7 +56,7 @@ const BannerSlider: FC<BannerSliderProps> = ({
                 className="group"
               >
                 <LazyLoadImage
-                  src={resizeImage(film.backdrop_path, "w1280")}
+                  src={resizeImage(film.backdrop_path, "w780")}
                   alt="Backdrop image"
                   effect="blur"
                   width='100%'
