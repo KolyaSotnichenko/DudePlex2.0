@@ -5,6 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link, useNavigate } from "react-router-dom";
 import { Item } from "../../shared/types";
 import { resizeImage } from "../../shared/utils";
+import GoogleAds from "../Ads/GoogleAds";
 import Skeleton from "./Skeleton";
 
 interface RightbarFilmsProps {
@@ -72,6 +73,7 @@ const RightbarFilms: FunctionComponent<RightbarFilmsProps> = ({
               </li>
             ))}
       </ul>
+      <GoogleAds />
       <button
         onClick={() => navigate("/explore")}
         className="bg-dark-lighten py-2 w-full rounded-full mt-7 hover:brightness-75 transition duration-300 "

@@ -1,6 +1,6 @@
 import React, { useEffect  } from 'react';
 
-const GoogleAds = () => {
+const GoogleAdsAdaptiveGrid = () => {
 
     useEffect(() => {
 
@@ -20,12 +20,11 @@ const GoogleAds = () => {
         <>
           <ins class="adsbygoogle"
             style={{ display: "block" }}
-            data-ad-format="fluid"
-            data-ad-layout-key="-gj-1o-3n-5j+zj"
+            data-ad-format="autorelaxed"
             data-ad-client="ca-pub-8714967804560253"
-            data-ad-slot='5506110957'></ins>
+            data-ad-slot='9638326452'></ins>
         </>
     );
 };
 
-export default GoogleAds;
+export default GoogleAdsAdaptiveGrid;
