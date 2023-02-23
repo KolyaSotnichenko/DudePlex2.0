@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
-import GoogleAdsAdaptiveGrid from "../components/Ads/GoogleAdsAdaptiveGrid";
 import SearchBox from "../components/Common/SearchBox";
 import Sidebar from "../components/Common/Sidebar";
 import Title from "../components/Common/Title";
@@ -157,7 +156,6 @@ const Home: FC = () => {
               />
             </div>
           </div>
-          <GoogleAdsAdaptiveGrid />
           {currentTab === "movie" && (
             <MainHomeFilms
               data={dataMovie}
