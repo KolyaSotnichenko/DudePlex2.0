@@ -29,7 +29,6 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         dataDetail={dataDetail}
         isLoadingBanner={isLoadingBanner}
       />
-      <GoogleAdsAdaptiveGrid />
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
           <>
