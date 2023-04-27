@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
-import GoogleAdsAdaptiveGrid from "../Ads/GoogleAdsAdaptiveGrid";
 // import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
 import BannerSlider from "../Slider/BannerSlider";
