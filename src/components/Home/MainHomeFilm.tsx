@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { HomeFilms } from "../../shared/types";
-import GoogleAdsAdaptiveGrid from "../Ads/GoogleAdsAdaptiveGrid";
 // import { useAppSelector } from "../../store/hooks";
 import Skeleton from "../Common/Skeleton";
 import BannerSlider from "../Slider/BannerSlider";
@@ -29,7 +28,6 @@ const MainHomeFilms: FC<MainHomeFilmsProps> = ({
         dataDetail={dataDetail}
         isLoadingBanner={isLoadingBanner}
       />
-      <GoogleAdsAdaptiveGrid />
       <ul className="flex flex-col gap-10 mt-12">
         {isLoadingSection ? (
           <>

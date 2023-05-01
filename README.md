@@ -2,9 +2,6 @@
 
 Hot TV Show / Movie Watching Website
 
-## Live demo
-
-Official website: [https://myDUDEPLEX.vercel.app/](https://myDUDEPLEX.vercel.app/)
 
 ## Movie sources
 
