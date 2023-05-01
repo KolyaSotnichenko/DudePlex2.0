@@ -20,9 +20,6 @@ import {
 import { HomeFilms, Item } from "../shared/types";
 import { useAppSelector } from "../store/hooks";
 
-
-
-
 const Home: FC = () => {
   const currentUser = useAppSelector((state) => state.auth.user);
   const [currentTab, setCurrentTab] = useState(
@@ -77,7 +74,11 @@ const Home: FC = () => {
   return (
     <>
       <Helmet>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8714967804560253" crossOrigin="anonymous"></script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8714967804560253"
+          crossOrigin="anonymous"
+        ></script>
       </Helmet>
       <Title value="DUDEPLEX | Watching Website" />
 
@@ -178,6 +179,11 @@ const Home: FC = () => {
           <SearchBox />
           <RecommendGenres currentTab={currentTab} />
           <TrendingNow />
+          <ins
+            className="604c7625"
+            data-key="11a282ad7ff3acafdd59e7101c77d0df"
+            data-cp-host="msNIXXBblTTU|1|https://www.dudeplex.space/"
+          ></ins>
         </div>
       </div>
 
