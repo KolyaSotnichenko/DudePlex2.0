@@ -179,11 +179,6 @@ const Home: FC = () => {
           <SearchBox />
           <RecommendGenres currentTab={currentTab} />
           <TrendingNow />
-          <ins
-            className="604c7625"
-            data-key="11a282ad7ff3acafdd59e7101c77d0df"
-            data-cp-host="msNIXXBblTTU|1|https://www.dudeplex.space/"
-          ></ins>
         </div>
       </div>
 
