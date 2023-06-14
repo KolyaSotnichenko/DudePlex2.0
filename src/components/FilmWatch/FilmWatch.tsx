@@ -302,12 +302,13 @@ const FilmWatch: FunctionComponent<FilmWatchProps & getWatchReturnedType> = ({
                   <div className="flex gap-5 mt-5">
                     <div className="flex gap-2 items-center">
                       <AiFillStar size={25} className="text-primary" />
-                      {media_type === "movie" && (
+{/*                       {media_type === "movie" && (
                         <p>{detail.vote_average.toFixed(1)}</p>
                       )}
                       {media_type === "tv" && (
                         <p>{currentEpisode?.vote_average.toFixed(1)}</p>
-                      )}
+                      )} */}
+                      <p>{detail.vote_average.toFixed(1)}</p>
                     </div>
                     <div className="flex gap-2 items-center">
                       <AiTwotoneCalendar size={25} className="text-primary" />
